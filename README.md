@@ -1,3 +1,18 @@
+# UiPath Orchestrator IIS
+
+This readme provides instruction on how to containerize the UiPath Orchestrator Web application.
+
+It uses the uipath/Infrastructure installation script Install-UiPathOrchestrator.ps1.
+
+The following modifications were done to make this script work with the windows container image:
+
+- 1. ClientForNFS-Infrastructure must be removed from the installation script
+- 2. The default apppool identity must be change to appPoolIdentityType  
+
+
+
+
+
 # Building
 
 ```bash
