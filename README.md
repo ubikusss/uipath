@@ -5,6 +5,11 @@ docker rmi -f uipath-orchestrator:1.0
 docker build -t uipath-orchestrator:1.0 .
 ```
 
+setup_iis_user.ps1
+```powershell
+$password = "Password123!@#"; $secureStringPwd = $password | ConvertTo-SecureString -AsPlainText -Force; New-LocalUser apppool_uipath -AccountNeverExpires -Password $secureStringPwd;
+```
+
 # docker-entrypoint.sh
 
 ```powershell
