@@ -4,10 +4,10 @@ This readme provides instruction on how to containerize the UiPath Orchestrator 
 
 It uses the uipath/Infrastructure installation script Install-UiPathOrchestrator.ps1.
 
-The following modifications were done to make this script work with the windows container image:
+The following modifications were done to make this script work with the windows container image base image:
 
-- 1. ClientForNFS-Infrastructure must be removed from the installation script
-- 2. The default apppool identity must be change to appPoolIdentityType  
+- ClientForNFS-Infrastructure must be removed from the installation script
+- The default apppool identity must be change to appPoolIdentityType  
 
 
 
@@ -61,6 +61,15 @@ else
     C:\start_servicemonitor.ps1
 }
 ```
+
+
+# start_servicemonitor.ps1
+
+```powershell
+c:\ServiceMonitor.exe w3svc
+```
+
+
 
 ```Dockerfile
 # escape=`
@@ -1391,11 +1400,4 @@ docker run -d -p 8080:80 --name=uipath --env ORCHESTRATOR_VERSION="19.4.3" --env
      
 docker logs uipath
 ```
-
-# start_servicemonitor.ps1
-
-```powershell
-c:\ServiceMonitor.exe w3svc
-```
-
 
